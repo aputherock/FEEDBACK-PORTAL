@@ -2,7 +2,9 @@
 <html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#070b14" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
   <title>EduVoice — Student Feedback Portal</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
@@ -10,21 +12,6 @@
 </head>
 <body>
 
-  <!-- THEME TOGGLE -->
-  <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-    <span class="toggle-icon sun">☀</span>
-    <span class="toggle-icon moon">◑</span>
-    <span class="bubbles" aria-hidden="true">
-      <span class="bubble"></span>
-      <span class="bubble"></span>
-      <span class="bubble"></span>
-      <span class="bubble"></span>
-      <span class="bubble"></span>
-      <span class="bubble"></span>
-      <span class="bubble"></span>
-      <span class="bubble"></span>
-    </span>
-  </button>
 
   <!-- CANVAS BACKGROUND -->
   <canvas id="bgCanvas"></canvas>
@@ -93,11 +80,11 @@
     <div class="dept-grid">
 
       <!-- ── CARD 1 · BCA ── -->
+      <!-- FIX: URL-encode space in path; also add data-color for JS -->
       <div class="dept-card reveal"
            data-dept="BCA"
            data-color="#6c63ff"
-           tabindex="0"
-           style="background-image:url('bg images/bca.png');background-size:cover;background-position:center;">
+           tabindex="0">
         <div class="card-3d-label">Open Feedback</div>
         <div class="card-bg-layer"></div>
         <div class="card-gradient-overlay"></div>
@@ -134,8 +121,7 @@
       <div class="dept-card reveal"
            data-dept="Hotel Management"
            data-color="#f59e0b"
-           tabindex="0"
-           style="background-image:url('bg images/hotel.png');background-size:cover;background-position:center;">
+           tabindex="0">
         <div class="card-3d-label">Open Feedback</div>
         <div class="card-bg-layer"></div>
         <div class="card-gradient-overlay"></div>
@@ -172,8 +158,7 @@
       <div class="dept-card reveal"
            data-dept="Hospital Management"
            data-color="#10b981"
-           tabindex="0"
-           style="background-image:url('bg images/hospital.png');background-size:cover;background-position:center;">
+           tabindex="0">
         <div class="card-3d-label">Open Feedback</div>
         <div class="card-bg-layer"></div>
         <div class="card-gradient-overlay"></div>
@@ -188,7 +173,7 @@
           <div class="card-top-row">
             <div class="dept-icon-wrap">
               <div class="dept-icon">
-                <img src="https://cdn-icons-png.flaticon.com/512/3774/3774299.png" alt="Hospital Management Icon" width="30" height="30" loading="lazy" />
+                <img src="https://cdn-icons-png.flaticon.com/512/2966/2966327.png" alt="Hospital Management Icon" width="30" height="30" loading="lazy" />
               </div>
             </div>
             <div class="card-number">03</div>
@@ -210,8 +195,7 @@
       <div class="dept-card reveal"
            data-dept="Multimedia & Animation"
            data-color="#ec4899"
-           tabindex="0"
-           style="background-image:url('bg images/multi.png');background-size:cover;background-position:center;">
+           tabindex="0">
         <div class="card-3d-label">Open Feedback</div>
         <div class="card-bg-layer"></div>
         <div class="card-gradient-overlay"></div>
@@ -330,8 +314,9 @@
           <span class="field-error" id="msgError"></span>
         </div>
 
+        <!-- FIX: Corrected broken div nesting in form-footer -->
         <div class="form-footer">
-          <div class="whatsapp-note"></div>
+          <div class="whatsapp-note">
             <span class="wa-icon">📱</span>
             Will redirect to WhatsApp with pre-filled message
           </div>

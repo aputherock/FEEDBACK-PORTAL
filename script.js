@@ -11,8 +11,10 @@ const DEPT_CONFIG = {
 let currentDept = null;
 let feedbackType = 'Feedback';
 
+/* ---- Detect touch device ---- */
+const isTouchDevice = () => window.matchMedia('(hover: none)').matches;
+
 /* ---- DOM refs ---- */
-const themeToggle  = document.getElementById('themeToggle');
 const modalOverlay = document.getElementById('modalOverlay');
 const modalClose   = document.getElementById('modalClose');
 const feedbackForm = document.getElementById('feedbackForm');
@@ -30,7 +32,6 @@ const modalDeptIcon= document.getElementById('modalDeptIcon');
 const modalDeptName= document.getElementById('modalDeptName');
 const modalDeptBadge=document.getElementById('modalDeptBadge');
 const bgCanvas     = document.getElementById('bgCanvas');
-const html         = document.documentElement;
 
 /* ================================================
    INJECT CSS CUSTOM PROP --c PER CARD
@@ -41,30 +42,12 @@ document.querySelectorAll('.dept-card').forEach(card => {
 });
 
 /* ================================================
-   THEME TOGGLE — with localStorage persistence + bubble burst
-   ================================================ */
-// Restore saved theme
-const savedTheme = localStorage.getItem('eduvoice-theme');
-if (savedTheme) html.setAttribute('data-theme', savedTheme);
-
-themeToggle.addEventListener('click', () => {
-  const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-  html.setAttribute('data-theme', next);
-  localStorage.setItem('eduvoice-theme', next);
-
-  // Trigger bubble burst animation
-  themeToggle.classList.remove('burst');
-  // Force reflow to restart animation
-  void themeToggle.offsetWidth;
-  themeToggle.classList.add('burst');
-  setTimeout(() => themeToggle.classList.remove('burst'), 700);
-});
-
-/* ================================================
    CANVAS PARTICLE BACKGROUND
+   FIX: Proper resize + reduced particles on mobile
    ================================================ */
 (function() {
   const ctx = bgCanvas.getContext('2d');
+  const html = document.documentElement;
   let W, H, particles = [];
 
   function resize() {
@@ -72,11 +55,19 @@ themeToggle.addEventListener('click', () => {
     H = bgCanvas.height = window.innerHeight;
   }
   resize();
-  window.addEventListener('resize', resize);
+
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(resize, 100);
+  });
 
   function isLight() {
     return html.getAttribute('data-theme') === 'light';
   }
+
+  // FIX: Fewer particles on mobile for better performance
+  const PARTICLE_COUNT = window.innerWidth < 600 ? 60 : 130;
 
   class Particle {
     constructor() { this.reset(true); }
@@ -86,7 +77,6 @@ themeToggle.addEventListener('click', () => {
       this.r = Math.random() * 2 + 0.4;
       this.speed = Math.random() * 0.35 + 0.08;
       this.alpha = Math.random() * 0.55 + 0.1;
-      // Light mode: use accent colours more visibly
       const colors = isLight()
         ? ['#6c63ff', '#ec4899', '#f59e0b', '#10b981']
         : ['#6c63ff', '#ec4899', '#a78bfa', '#f59e0b'];
@@ -111,11 +101,13 @@ themeToggle.addEventListener('click', () => {
     }
   }
 
-  for (let i = 0; i < 130; i++) particles.push(new Particle());
+  for (let i = 0; i < PARTICLE_COUNT; i++) particles.push(new Particle());
+
+  let animId;
   (function loop() {
     ctx.clearRect(0, 0, W, H);
     particles.forEach(p => { p.update(); p.draw(); });
-    requestAnimationFrame(loop);
+    animId = requestAnimationFrame(loop);
   })();
 })();
 
@@ -134,7 +126,6 @@ const revealObserver = new IntersectionObserver(entries => {
 }, { threshold: 0.08 });
 document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-// Hero stagger on load
 window.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.hero .reveal').forEach((el, i) => {
     setTimeout(() => el.classList.add('visible'), 180 + i * 130);
@@ -142,43 +133,56 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 /* ================================================
-   3D CARD TILT — Enhanced
+   3D CARD TILT — DESKTOP ONLY
+   FIX: Skip entirely on touch devices; they were
+   causing sticky/frozen transforms on mobile
    ================================================ */
 document.querySelectorAll('.dept-card').forEach(card => {
-  card.addEventListener('mousemove', e => {
-    const r   = card.getBoundingClientRect();
-    const dx  = (e.clientX - (r.left + r.width  / 2)) / (r.width  / 2);
-    const dy  = (e.clientY - (r.top  + r.height / 2)) / (r.height / 2);
 
-    // Stronger 3D tilt
-    card.style.transform = [
-      `perspective(1000px)`,
-      `rotateY(${dx * 14}deg)`,
-      `rotateX(${-dy * 14}deg)`,
-      `scale3d(1.05, 1.05, 1.05)`,
-      `translateZ(8px)`
-    ].join(' ');
+  // Desktop mouse tilt
+  if (!isTouchDevice()) {
+    card.addEventListener('mousemove', e => {
+      const r   = card.getBoundingClientRect();
+      const dx  = (e.clientX - (r.left + r.width  / 2)) / (r.width  / 2);
+      const dy  = (e.clientY - (r.top  + r.height / 2)) / (r.height / 2);
+      card.style.transform = [
+        `perspective(1000px)`,
+        `rotateY(${dx * 14}deg)`,
+        `rotateX(${-dy * 14}deg)`,
+        `scale3d(1.05, 1.05, 1.05)`,
+        `translateZ(8px)`
+      ].join(' ');
+      const shadowX = dx * 20;
+      const shadowY = dy * 20;
+      card.style.boxShadow = `
+        ${shadowX}px ${shadowY + 20}px 60px rgba(0,0,0,0.55),
+        0 0 0 1px rgba(255,255,255,0.08)
+      `;
+    });
 
-    // Dynamic shadow follows cursor
-    const shadowX = dx * 20;
-    const shadowY = dy * 20;
-    card.style.boxShadow = `
-      ${shadowX}px ${shadowY + 20}px 60px rgba(0,0,0,0.55),
-      0 0 0 1px rgba(255,255,255,0.08)
-    `;
-  });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+      card.style.boxShadow = '';
+    });
+  }
 
-  card.addEventListener('mouseleave', () => {
-    card.style.transform = 'perspective(1000px) rotateY(0) rotateX(0) scale3d(1,1,1) translateZ(0)';
-    card.style.boxShadow = '';
-  });
-
-  // Touch support
+  // Touch support — FIX: Simple scale pulse, NO 3D transforms
   card.addEventListener('touchstart', () => {
-    card.style.transform = 'perspective(1000px) scale3d(1.03,1.03,1.03)';
+    card.style.transition = 'transform 0.15s ease, box-shadow 0.15s ease';
+    card.style.transform = 'scale(0.96)';
+    card.style.boxShadow = `0 0 0 3px ${card.getAttribute('data-color') || '#6c63ff'}, 0 10px 40px rgba(0,0,0,0.5)`;
   }, { passive: true });
+
   card.addEventListener('touchend', () => {
+    setTimeout(() => {
+      card.style.transform = '';
+      card.style.boxShadow = '';
+    }, 180);
+  });
+
+  card.addEventListener('touchcancel', () => {
     card.style.transform = '';
+    card.style.boxShadow = '';
   });
 });
 
@@ -199,7 +203,10 @@ function openModal(dept) {
   setActiveType('Feedback');
   modalOverlay.classList.add('active');
   document.body.style.overflow = 'hidden';
-  setTimeout(() => studentName.focus(), 380);
+  // Delay focus on mobile to avoid layout jump from keyboard
+  setTimeout(() => {
+    if (!isTouchDevice()) studentName.focus();
+  }, 450);
 }
 
 document.querySelectorAll('.dept-card').forEach(card => {
