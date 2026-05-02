@@ -1,363 +1,1114 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="theme-color" content="#070b14" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <title>EduVoice — Student Feedback Portal</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CTMC – Feedback Portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <canvas id="bgCanvas"></canvas>
+    <div id="particles"></div>
 
-
-  <!-- CANVAS BACKGROUND -->
-  <canvas id="bgCanvas"></canvas>
-
-  <!-- ============================================================
-       HERO
-       ============================================================ -->
-  <section class="hero" id="home">
-    <div class="hero-orbs">
-      <div class="orb orb-1"></div>
-      <div class="orb orb-2"></div>
-      <div class="orb orb-3"></div>
-    </div>
-
-    <div class="hero-content">
-      <div class="badge reveal">
-        <span class="badge-dot"></span>
-        Student Voice Platform
-      </div>
-      <h1 class="hero-title reveal">
-        <span class="line">Speak Up.</span>
-        <span class="line gradient-text">Be Heard.</span>
-      </h1>
-      <p class="hero-subtitle reveal">
-        Submit feedback &amp; complaints directly to your faculty —<br />
-        instantly, securely, and straight to WhatsApp.
-      </p>
-      <a href="#departments" class="cta-btn reveal">
-        <span>Start Feedback</span>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
-    </div>
-
-    <div class="floating-cards">
-      <div class="float-card">
-        <div class="fc-icon">💬</div><div class="fc-label">Feedback</div>
-      </div>
-      <div class="float-card">
-        <div class="fc-icon">📋</div><div class="fc-label">Complaint</div>
-      </div>
-      <div class="float-card">
-        <div class="fc-icon">✅</div><div class="fc-label">Resolved</div>
-      </div>
-    </div>
-
-    <div class="scroll-hint">
-      <div class="scroll-line"></div>
-      <span>Scroll</span>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       DEPARTMENT CARDS SECTION
-       ============================================================ -->
-  <section class="departments-section" id="departments">
-
-    <div class="section-header reveal">
-      <p class="section-eyebrow">Choose your stream</p>
-      <h2 class="section-title">Select Department</h2>
-      <p class="section-desc">
-        Pick your department to begin submitting your feedback
-        or complaint to the right faculty member.
-      </p>
-    </div>
-
-    <div class="dept-grid">
-
-      <!-- ── CARD 1 · BCA ── -->
-      <!-- FIX: URL-encode space in path; also add data-color for JS -->
-      <div class="dept-card reveal"
-           data-dept="BCA"
-           data-color="#6c63ff"
-           tabindex="0">
-        <div class="card-3d-label">Open Feedback</div>
-        <div class="card-bg-layer"></div>
-        <div class="card-gradient-overlay"></div>
-        <div class="card-glow"></div>
-        <div class="card-particles">
-          <span class="particle p1"></span>
-          <span class="particle p2"></span>
-          <span class="particle p3"></span>
-          <span class="particle p4"></span>
-        </div>
-        <div class="card-inner">
-          <div class="card-top-row">
-            <div class="dept-icon-wrap">
-              <div class="dept-icon">
-                <img src="ICON_IMAGES/icon.png" alt="BCA Icon" width="30" height="30" loading="lazy" />
-              </div>
-            </div>
-            <div class="card-number">01</div>
-          </div>
-          <div class="card-body">
-            <h3 class="dept-name">BCA</h3>
-            <p class="dept-sub">Bachelor of Computer Applications</p>
-            <div class="dept-divider"></div>
-            <div class="card-footer-row">
-              <div class="dept-meta"><span class="meta-icon">⏱</span> 3 Year Program</div>
-              <div class="dept-arrow"><span class="arrow-ring">→</span></div>
-            </div>
-          </div>
-        </div>
-        <div class="card-shine"></div>
-      </div>
-
-      <!-- ── CARD 2 · HOTEL MANAGEMENT ── -->
-      <div class="dept-card reveal"
-           data-dept="Hotel Management"
-           data-color="#f59e0b"
-           tabindex="0">
-        <div class="card-3d-label">Open Feedback</div>
-        <div class="card-bg-layer"></div>
-        <div class="card-gradient-overlay"></div>
-        <div class="card-glow"></div>
-        <div class="card-particles">
-          <span class="particle p1"></span>
-          <span class="particle p2"></span>
-          <span class="particle p3"></span>
-          <span class="particle p4"></span>
-        </div>
-        <div class="card-inner">
-          <div class="card-top-row">
-            <div class="dept-icon-wrap">
-              <div class="dept-icon">
-                <img src="https://cdn-icons-png.flaticon.com/512/5991/5991698.png" alt="Hotel Management Icon" width="30" height="30" loading="lazy" />
-              </div>
-            </div>
-            <div class="card-number">02</div>
-          </div>
-          <div class="card-body">
-            <h3 class="dept-name">Hotel Management</h3>
-            <p class="dept-sub">Hospitality &amp; Tourism Studies</p>
-            <div class="dept-divider"></div>
-            <div class="card-footer-row">
-              <div class="dept-meta"><span class="meta-icon">⏱</span> 3 Year Program</div>
-              <div class="dept-arrow"><span class="arrow-ring">→</span></div>
-            </div>
-          </div>
-        </div>
-        <div class="card-shine"></div>
-      </div>
-
-      <!-- ── CARD 3 · HOSPITAL MANAGEMENT ── -->
-      <div class="dept-card reveal"
-           data-dept="Hospital Management"
-           data-color="#10b981"
-           tabindex="0">
-        <div class="card-3d-label">Open Feedback</div>
-        <div class="card-bg-layer"></div>
-        <div class="card-gradient-overlay"></div>
-        <div class="card-glow"></div>
-        <div class="card-particles">
-          <span class="particle p1"></span>
-          <span class="particle p2"></span>
-          <span class="particle p3"></span>
-          <span class="particle p4"></span>
-        </div>
-        <div class="card-inner">
-          <div class="card-top-row">
-            <div class="dept-icon-wrap">
-              <div class="dept-icon">
-                <img src="https://cdn-icons-png.flaticon.com/512/2966/2966327.png" alt="Hospital Management Icon" width="30" height="30" loading="lazy" />
-              </div>
-            </div>
-            <div class="card-number">03</div>
-          </div>
-          <div class="card-body">
-            <h3 class="dept-name">Hospital Management</h3>
-            <p class="dept-sub">Healthcare Administration</p>
-            <div class="dept-divider"></div>
-            <div class="card-footer-row">
-              <div class="dept-meta"><span class="meta-icon">⏱</span> 3 Year Program</div>
-              <div class="dept-arrow"><span class="arrow-ring">→</span></div>
-            </div>
-          </div>
-        </div>
-        <div class="card-shine"></div>
-      </div>
-
-      <!-- ── CARD 4 · MULTIMEDIA & ANIMATION ── -->
-      <div class="dept-card reveal"
-           data-dept="Multimedia & Animation"
-           data-color="#ec4899"
-           tabindex="0">
-        <div class="card-3d-label">Open Feedback</div>
-        <div class="card-bg-layer"></div>
-        <div class="card-gradient-overlay"></div>
-        <div class="card-glow"></div>
-        <div class="card-particles">
-          <span class="particle p1"></span>
-          <span class="particle p2"></span>
-          <span class="particle p3"></span>
-          <span class="particle p4"></span>
-        </div>
-        <div class="card-inner">
-          <div class="card-top-row">
-            <div class="dept-icon-wrap">
-              <div class="dept-icon">
-                <img src="https://cdn-icons-png.flaticon.com/512/1055/1055687.png" alt="Multimedia Icon" width="30" height="30" loading="lazy" />
-              </div>
-            </div>
-            <div class="card-number">04</div>
-          </div>
-          <div class="card-body">
-            <h3 class="dept-name">Multimedia &amp; Animation</h3>
-            <p class="dept-sub">Creative Visual Arts &amp; Design</p>
-            <div class="dept-divider"></div>
-            <div class="card-footer-row">
-              <div class="dept-meta"><span class="meta-icon">⏱</span> 3 Year Program</div>
-              <div class="dept-arrow"><span class="arrow-ring">→</span></div>
-            </div>
-          </div>
-        </div>
-        <div class="card-shine"></div>
-      </div>
-
-    </div><!-- /.dept-grid -->
-  </section>
-
-  <!-- ============================================================
-       MODAL
-       ============================================================ -->
-  <div class="modal-overlay" id="modalOverlay">
-    <div class="modal-container" id="modalContainer">
-      <button class="modal-close" id="modalClose" aria-label="Close">✕</button>
-
-      <div class="modal-header">
-        <div class="modal-dept-badge" id="modalDeptBadge">
-          <span class="modal-dept-icon" id="modalDeptIcon">💻</span>
-          <span id="modalDeptName">BCA</span>
-        </div>
-        <h2 class="modal-title">Submit Feedback</h2>
-        <p class="modal-subtitle">Your message goes directly to your faculty via WhatsApp</p>
-      </div>
-
-      <form class="feedback-form" id="feedbackForm" novalidate>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label class="form-label" for="studentName">Student Name <span class="req">*</span></label>
-            <div class="input-wrap">
-              <span class="input-icon">👤</span>
-              <input type="text" id="studentName" class="form-input" placeholder="Enter your full name" autocomplete="name" />
-            </div>
-            <span class="field-error" id="nameError"></span>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="rollNumber">Roll Number <span class="req">*</span></label>
-            <div class="input-wrap">
-              <span class="input-icon">🎓</span>
-              <input type="text" id="rollNumber" class="form-input" placeholder="e.g. BCA2024001" />
-            </div>
-            <span class="field-error" id="rollError"></span>
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label class="form-label" for="deptField">Department</label>
-            <div class="input-wrap">
-              <span class="input-icon">🏫</span>
-              <input type="text" id="deptField" class="form-input input-readonly" readonly />
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="semester">Semester <span class="req">*</span></label>
-            <div class="input-wrap select-wrap">
-              <span class="input-icon">📅</span>
-              <select id="semester" class="form-input form-select">
-                <option value="">— Select Semester —</option>
-                <option>1st Semester</option>
-                <option>2nd Semester</option>
-                <option>3rd Semester</option>
-                <option>4th Semester</option>
-                <option>5th Semester</option>
-                <option>6th Semester</option>
-              </select>
-              <span class="select-arrow">▾</span>
-            </div>
-            <span class="field-error" id="semesterError"></span>
-          </div>
-        </div>
-
-        <div class="form-group full-width">
-          <label class="form-label">Feedback Type <span class="req">*</span></label>
-          <div class="type-toggle">
-            <button type="button" class="type-btn active" data-type="Feedback">💬 Feedback</button>
-            <button type="button" class="type-btn" data-type="Complaint">⚠️ Complaint</button>
-            <button type="button" class="type-btn" data-type="Suggestion">💡 Suggestion</button>
-          </div>
-          <input type="hidden" id="feedbackType" value="Feedback" />
-        </div>
-
-        <div class="form-group full-width">
-          <label class="form-label" for="message">Message <span class="req">*</span></label>
-          <div class="textarea-wrap">
-            <textarea id="message" class="form-input form-textarea" placeholder="Describe your feedback or complaint in detail..." rows="5"></textarea>
-            <div class="char-counter"><span id="charCount">0</span>/500</div>
-          </div>
-          <span class="field-error" id="msgError"></span>
-        </div>
-
-        <!-- FIX: Corrected broken div nesting in form-footer -->
-        <div class="form-footer">
-          <div class="whatsapp-note">
-            <span class="wa-icon">📱</span>
-            Will redirect to WhatsApp with pre-filled message
-          </div>
-          <button type="submit" class="submit-btn" id="submitBtn">
-            <span class="btn-text">
-              Send via WhatsApp
-              <svg class="wa-svg" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    <!-- ===== HEADER ===== -->
+    <header class="site-header">
+      <div class="header-inner">
+        <!--
+        LOGO INSTRUCTIONS:
+        Place your  logo.png  file in the SAME folder as index.html.
+        It will appear here automatically. If missing → SVG anchor fallback shows.
+      -->
+        <div class="college-logo">
+          <div class="logo-ring">
+            <img
+              src="bg_images/logo.png"
+              alt="CTMC Logo"
+              class="logo-img"
+              onerror="
+                this.style.display = 'none';
+                this.nextElementSibling.style.display = 'flex';
+              "
+            />
+            <span class="logo-svg-fallback" style="display: none">
+              <svg viewBox="0 0 48 48" width="38" height="38" fill="none">
+                <circle
+                  cx="24"
+                  cy="24"
+                  r="20"
+                  stroke="#00d4ff"
+                  stroke-width="2"
+                />
+                <path
+                  d="M24 8v32M12 18L24 8l12 10"
+                  stroke="#00d4ff"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M16 28Q24 20 32 28"
+                  stroke="#a855f7"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+                <circle cx="24" cy="32" r="3" fill="#00d4ff" />
               </svg>
             </span>
-            <span class="btn-loader">
-              <span class="spinner"></span>
-              Sending...
-            </span>
-          </button>
+          </div>
         </div>
 
-      </form>
-    </div>
-  </div>
-
-  <!-- TOAST -->
-  <div class="toast" id="toast">
-    <span class="toast-icon" id="toastIcon">✅</span>
-    <span class="toast-msg" id="toastMsg">Feedback submitted!</span>
-  </div>
-
-  <footer class="footer">
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <span class="brand-dot"></span>EduVoice Portal
+        <div class="college-info">
+          <h1 class="college-name">
+            <span class="name-caravel">CARAVEL</span>
+            <span class="name-sub">TECHNICAL &amp; MANAGEMENT COLLEGE</span>
+          </h1>
+          <p class="college-tagline">
+            Shaping Minds · Building Futures · Sailing Forward
+          </p>
+        </div>
       </div>
-      <p class="footer-copy">
-        © 2025 EduVoice · Student Feedback System · Built for better education
-      </p>
-      <p class="footer-dev">
-        Developed by <span class="glow-text">Mr Apurba Goswami</span>
-      </p>
-    </div>
-  </footer>
+      <div class="header-stripe"></div>
+    </header>
 
-  <script src="script.js"></script>
-</body>
+    <!-- ===== HERO ===== -->
+    <section class="hero-section">
+      <div class="hero-badge">FEEDBACK PORTAL</div>
+      <h2 class="hero-title">
+        Your Voice <span class="accent-text">Matters</span>
+      </h2>
+      <p class="hero-desc">
+        Select your department below to submit a complaint, suggestion, or
+        feedback. Every message reaches your faculty directly.
+      </p>
+      <div class="scroll-hint">
+        <span>Select Department</span>
+        <div class="scroll-arrow">
+          <svg
+            viewBox="0 0 24 24"
+            width="13"
+            height="13"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+          >
+            <path d="M12 5v14M5 12l7 7 7-7" />
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== DEPARTMENT CARDS ===== -->
+    <section class="dept-section" id="departments">
+      <div class="section-label">— DEPARTMENTS —</div>
+      <div class="cards-grid">
+        <!-- BCA -->
+        <div class="dept-card" data-dept="BCA" data-color="#00d4ff">
+          <div class="card-glow"></div>
+          <div class="card-inner">
+            <div class="card-icon" style="color: #00d4ff">
+              <svg
+                viewBox="0 0 48 48"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect
+                  x="4"
+                  y="8"
+                  width="40"
+                  height="26"
+                  rx="3"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  fill="rgba(0,212,255,0.07)"
+                />
+                <path
+                  d="M16 42h16M24 34v8"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                />
+                <rect
+                  x="9"
+                  y="13"
+                  width="11"
+                  height="9"
+                  rx="1.5"
+                  fill="currentColor"
+                  opacity="0.25"
+                />
+                <path
+                  d="M25 15h10M25 20h8M25 24h5"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+                <circle cx="11" cy="29" r="1.5" fill="currentColor" />
+                <circle
+                  cx="16"
+                  cy="29"
+                  r="1.5"
+                  fill="currentColor"
+                  opacity="0.6"
+                />
+                <circle
+                  cx="21"
+                  cy="29"
+                  r="1.5"
+                  fill="currentColor"
+                  opacity="0.3"
+                />
+              </svg>
+            </div>
+            <h3 class="card-title">BCA</h3>
+            <p class="card-full">Bachelor of Computer Applications</p>
+            <div class="card-meta">
+              <svg class="meta-icon" viewBox="0 0 16 16" fill="none">
+                <circle
+                  cx="8"
+                  cy="5"
+                  r="3"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                />
+                <path
+                  d="M2 14c0-3.3 2.7-6 6-6s6 2.7 6 6"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                />
+              </svg>
+              <span class="card-faculty">Mr. Apurba Goswami</span>
+            </div>
+            <button class="card-btn">
+              <svg
+                width="15"
+                height="15"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+              >
+                <path
+                  d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+                />
+              </svg>
+              <span>Send Feedback</span>
+              <div class="btn-ripple"></div>
+            </button>
+          </div>
+          <div class="card-corner-tag">CS</div>
+        </div>
+
+        <!-- BBA -->
+        <div class="dept-card" data-dept="BBA" data-color="#a855f7">
+          <div class="card-glow"></div>
+          <div class="card-inner">
+            <div class="card-icon" style="color: #a855f7">
+              <svg
+                viewBox="0 0 48 48"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect
+                  x="5"
+                  y="30"
+                  width="8"
+                  height="13"
+                  rx="2"
+                  fill="currentColor"
+                  opacity="0.35"
+                />
+                <rect
+                  x="20"
+                  y="20"
+                  width="8"
+                  height="23"
+                  rx="2"
+                  fill="currentColor"
+                  opacity="0.6"
+                />
+                <rect
+                  x="35"
+                  y="10"
+                  width="8"
+                  height="33"
+                  rx="2"
+                  fill="currentColor"
+                  opacity="0.9"
+                />
+                <path
+                  d="M9 30 L24 20 L39 10"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-dasharray="3 2"
+                  opacity="0.7"
+                />
+                <circle cx="9" cy="30" r="2.5" fill="currentColor" />
+                <circle cx="24" cy="20" r="2.5" fill="currentColor" />
+                <circle cx="39" cy="10" r="2.5" fill="currentColor" />
+                <path
+                  d="M5 44h38"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  opacity="0.3"
+                />
+              </svg>
+            </div>
+            <h3 class="card-title">BBA</h3>
+            <p class="card-full">Bachelor of Business Administration</p>
+            <div class="card-meta">
+              <svg class="meta-icon" viewBox="0 0 16 16" fill="none">
+                <circle
+                  cx="8"
+                  cy="5"
+                  r="3"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                />
+                <path
+                  d="M2 14c0-3.3 2.7-6 6-6s6 2.7 6 6"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                />
+              </svg>
+              <span class="card-faculty">Mr. Rahul Verma</span>
+            </div>
+            <button class="card-btn">
+              <svg
+                width="15" 
+                height="15"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+              >
+                <path
+                  d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+                />
+              </svg>
+              <span>Send Feedback</span>
+              <div class="btn-ripple"></div>
+            </button>
+          </div>
+          <div class="card-corner-tag">BIZ</div>
+        </div>
+
+        <!-- Hospital Management -->
+        <div
+          class="dept-card"
+          data-dept="Hospital Management"
+          data-color="#22c55e"
+        >
+          <div class="card-glow"></div>
+          <div class="card-inner">
+            <div class="card-icon" style="color: #22c55e">
+              <svg
+                viewBox="0 0 48 48"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect
+                  x="6"
+                  y="14"
+                  width="36"
+                  height="30"
+                  rx="3"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  fill="rgba(34,197,94,0.07)"
+                />
+                <rect
+                  x="16"
+                  y="6"
+                  width="16"
+                  height="8"
+                  rx="2"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  fill="none"
+                />
+                <path
+                  d="M24 22v10M19 27h10"
+                  stroke="currentColor"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                />
+                <rect
+                  x="10"
+                  y="36"
+                  width="7"
+                  height="8"
+                  rx="1"
+                  fill="currentColor"
+                  opacity="0.35"
+                />
+                <rect
+                  x="31"
+                  y="36"
+                  width="7"
+                  height="8"
+                  rx="1"
+                  fill="currentColor"
+                  opacity="0.35"
+                />
+              </svg>
+            </div>
+            <h3 class="card-title">Hospital Management</h3>
+            <p class="card-full">Healthcare Administration &amp; Management</p>
+            <div class="card-meta">
+              <svg class="meta-icon" viewBox="0 0 16 16" fill="none">
+                <circle
+                  cx="8"
+                  cy="5"
+                  r="3"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                />
+                <path
+                  d="M2 14c0-3.3 2.7-6 6-6s6 2.7 6 6"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                />
+              </svg>
+              <span class="card-faculty">Dr. Anita Roy</span>
+            </div>
+            <button class="card-btn">
+              <svg
+                width="15"
+                height="15"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+              >
+                <path
+                  d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+                />
+              </svg>
+              <span>Send Feedback</span>
+              <div class="btn-ripple"></div>
+            </button>
+          </div>
+          <div class="card-corner-tag">HM</div>
+        </div>
+
+        <!-- Hotel Management -->
+        <div
+          class="dept-card"
+          data-dept="Hotel Management"
+          data-color="#f59e0b"
+        >
+          <div class="card-glow"></div>
+          <div class="card-inner">
+            <div class="card-icon" style="color: #f59e0b">
+              <svg
+                viewBox="0 0 48 48"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect
+                  x="4"
+                  y="16"
+                  width="40"
+                  height="28"
+                  rx="3"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  fill="rgba(245,158,11,0.07)"
+                />
+                <path
+                  d="M4 24h40"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  opacity="0.4"
+                />
+                <rect
+                  x="8"
+                  y="28"
+                  width="7"
+                  height="6"
+                  rx="1"
+                  fill="currentColor"
+                  opacity="0.5"
+                />
+                <rect
+                  x="21"
+                  y="28"
+                  width="7"
+                  height="6"
+                  rx="1"
+                  fill="currentColor"
+                  opacity="0.5"
+                />
+                <rect
+                  x="34"
+                  y="28"
+                  width="7"
+                  height="6"
+                  rx="1"
+                  fill="currentColor"
+                  opacity="0.5"
+                />
+                <rect
+                  x="18"
+                  y="36"
+                  width="13"
+                  height="8"
+                  rx="1"
+                  fill="currentColor"
+                  opacity="0.4"
+                />
+                <path
+                  d="M16 16V11a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v5"
+                  stroke="currentColor"
+                  stroke-width="2"
+                />
+                <path
+                  d="M24 5v4"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+                <path
+                  d="M20 7l1.5 2M28 7l-1.5 2"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  opacity="0.5"
+                />
+              </svg>
+            </div>
+            <h3 class="card-title">Hotel Management</h3>
+            <p class="card-full">Hospitality &amp; Tourism Management</p>
+            <div class="card-meta">
+              <svg class="meta-icon" viewBox="0 0 16 16" fill="none">
+                <circle
+                  cx="8"
+                  cy="5"
+                  r="3"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                />
+                <path
+                  d="M2 14c0-3.3 2.7-6 6-6s6 2.7 6 6"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                />
+              </svg>
+              <span class="card-faculty">Mr. Suresh Patel</span>
+            </div>
+            <button class="card-btn">
+              <svg
+                width="15"
+                height="15"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+              >
+                <path
+                  d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+                />
+              </svg>
+              <span>Send Feedback</span>
+              <div class="btn-ripple"></div>
+            </button>
+          </div>
+          <div class="card-corner-tag">HTM</div>
+        </div>
+
+        <!-- BMLT -->
+        <div class="dept-card" data-dept="BMLT" data-color="#ef4444">
+          <div class="card-glow"></div>
+          <div class="card-inner">
+            <div class="card-icon" style="color: #ef4444">
+              <svg
+                viewBox="0 0 48 48"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle
+                  cx="20"
+                  cy="18"
+                  r="11"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  fill="rgba(239,68,68,0.07)"
+                />
+                <circle
+                  cx="20"
+                  cy="18"
+                  r="5.5"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  fill="rgba(239,68,68,0.15)"
+                />
+                <circle
+                  cx="20"
+                  cy="18"
+                  r="2"
+                  fill="currentColor"
+                  opacity="0.8"
+                />
+                <path
+                  d="M28 26l10 10"
+                  stroke="currentColor"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                />
+                <path
+                  d="M6 42h36"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                />
+                <path
+                  d="M16 42v-7M22 42v-5"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+                <path
+                  d="M10 8l3-4M30 8l-3-4"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  opacity="0.45"
+                />
+              </svg>
+            </div>
+            <h3 class="card-title">BMLT</h3>
+            <p class="card-full">Bachelor of Medical Lab Technology</p>
+            <div class="card-meta">
+              <svg class="meta-icon" viewBox="0 0 16 16" fill="none">
+                <circle
+                  cx="8"
+                  cy="5"
+                  r="3"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                />
+                <path
+                  d="M2 14c0-3.3 2.7-6 6-6s6 2.7 6 6"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                />
+              </svg>
+              <span class="card-faculty">Dr. Meena Das</span>
+            </div>
+            <button class="card-btn">
+              <svg
+                width="15"
+                height="15"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+              >
+                <path
+                  d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+                />
+              </svg>
+              <span>Send Feedback</span>
+              <div class="btn-ripple"></div>
+            </button>
+          </div>
+          <div class="card-corner-tag">LAB</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FEEDBACK FORM MODAL ===== -->
+    <div class="modal-overlay" id="formModal">
+      <div class="modal-box" id="formModalBox">
+        <button class="modal-close" id="closeFormModal" aria-label="Close">
+          <svg
+            viewBox="0 0 24 24"
+            width="16"
+            height="16"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+          >
+            <path d="M18 6L6 18M6 6l12 12" />
+          </svg>
+        </button>
+
+        <div class="modal-header">
+          <div class="modal-dept-icon" id="formDeptIcon">
+            <!-- JS injects SVG here -->
+          </div>
+          <div>
+            <h3 class="modal-title">Submit Feedback</h3>
+            <p class="modal-dept-name" id="formDeptName">BCA Department</p>
+          </div>
+        </div>
+
+        <form id="feedbackForm" novalidate>
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label" for="studentName">
+                <svg class="label-icon" viewBox="0 0 16 16" fill="none">
+                  <circle
+                    cx="8"
+                    cy="5"
+                    r="3"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                  />
+                  <path
+                    d="M2 14c0-3.3 2.7-6 6-6s6 2.7 6 6"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                  />
+                </svg>
+                Student Name <span class="req">*</span>
+              </label>
+              <input
+                class="form-input"
+                type="text"
+                id="studentName"
+                placeholder="Enter your full name"
+                required
+              />
+              <span class="form-error" id="err-studentName"
+                >Name is required</span
+              >
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="classId">
+                <svg class="label-icon" viewBox="0 0 16 16" fill="none">
+                  <rect
+                    x="2"
+                    y="3"
+                    width="12"
+                    height="10"
+                    rx="1.5"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                  />
+                  <path
+                    d="M5 7h6M5 10h4"
+                    stroke="currentColor"
+                    stroke-width="1.2"
+                    stroke-linecap="round"
+                  />
+                </svg>
+                Class ID / Roll No. <span class="req">*</span>
+              </label>
+              <input
+                class="form-input"
+                type="text"
+                id="classId"
+                placeholder="e.g. BCA-2024-01"
+                required
+              />
+              <span class="form-error" id="err-classId"
+                >Class ID is required</span
+              >
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="semester">
+                <svg class="label-icon" viewBox="0 0 16 16" fill="none">
+                  <rect
+                    x="2"
+                    y="2"
+                    width="12"
+                    height="12"
+                    rx="1.5"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                  />
+                  <path
+                    d="M5 7l3 3 3-3"
+                    stroke="currentColor"
+                    stroke-width="1.3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+                Semester <span class="req">*</span>
+              </label>
+              <select class="form-input form-select" id="semester" required>
+                <option value="">Select Semester</option>
+                <option value="Semester 1">Semester 1</option>
+                <option value="Semester 2">Semester 2</option>
+                <option value="Semester 3">Semester 3</option>
+                <option value="Semester 4">Semester 4</option>
+                <option value="Semester 5">Semester 5</option>
+                <option value="Semester 6">Semester 6</option>
+              </select>
+              <span class="form-error" id="err-semester"
+                >Please select semester</span
+              >
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="department">
+                <svg class="label-icon" viewBox="0 0 16 16" fill="none">
+                  <rect
+                    x="2"
+                    y="7"
+                    width="12"
+                    height="7"
+                    rx="1"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                  />
+                  <path
+                    d="M5 7V5a3 3 0 0 1 6 0v2"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                  />
+                </svg>
+                Department
+              </label>
+              <input class="form-input" type="text" id="department" readonly />
+            </div>
+
+            <div class="form-group full-width">
+              <label class="form-label">
+                <svg class="label-icon" viewBox="0 0 16 16" fill="none">
+                  <circle
+                    cx="8"
+                    cy="8"
+                    r="6"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                  />
+                  <path
+                    d="M8 5v4M8 11v.5"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                  />
+                </svg>
+                Type <span class="req">*</span>
+              </label>
+              <div class="type-tabs" id="typeTabs">
+                <button
+                  type="button"
+                  class="type-tab active"
+                  data-type="Complaint"
+                >
+                  <svg viewBox="0 0 20 20" width="15" height="15" fill="none">
+                    <circle
+                      cx="10"
+                      cy="10"
+                      r="8"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                    />
+                    <path
+                      d="M10 6v4.5M10 13v.5"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                  Complaint
+                </button>
+                <button type="button" class="type-tab" data-type="Suggestion">
+                  <svg viewBox="0 0 20 20" width="15" height="15" fill="none">
+                    <path
+                      d="M10 2a6 6 0 0 1 4 10.5V15H6v-2.5A6 6 0 0 1 10 2z"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M7 17h6M8.5 19h3"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                  Suggestion
+                </button>
+                <button type="button" class="type-tab" data-type="Feedback">
+                  <svg viewBox="0 0 20 20" width="15" height="15" fill="none">
+                    <path
+                      d="M18 13a2 2 0 0 1-2 2H6l-4 4V4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2z"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                  Feedback
+                </button>
+              </div>
+              <input type="hidden" id="feedbackType" value="Complaint" />
+            </div>
+
+            <div class="form-group full-width">
+              <label class="form-label" for="message">
+                <svg class="label-icon" viewBox="0 0 16 16" fill="none">
+                  <rect
+                    x="1"
+                    y="3"
+                    width="14"
+                    height="10"
+                    rx="1.5"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                  />
+                  <path
+                    d="M4 7h8M4 10h5"
+                    stroke="currentColor"
+                    stroke-width="1.2"
+                    stroke-linecap="round"
+                  />
+                </svg>
+                Message <span class="req">*</span>
+              </label>
+              <textarea
+                class="form-input form-textarea"
+                id="message"
+                placeholder="Describe your complaint, suggestion, or feedback in detail..."
+                required
+              ></textarea>
+              <span class="form-error" id="err-message"
+                >Message is required</span
+              >
+            </div>
+          </div>
+
+          <button type="submit" class="submit-btn" id="submitBtn">
+            <svg
+              width="17"
+              height="17"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+            >
+              <path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z" />
+            </svg>
+            <span class="submit-text">Preview &amp; Send</span>
+            <div class="btn-ripple"></div>
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- ===== WHATSAPP MODAL ===== -->
+    <div class="modal-overlay" id="waModal">
+      <div class="modal-box wa-modal-box" id="waModalBox">
+        <button class="modal-close" id="closeWaModal" aria-label="Close">
+          <svg
+            viewBox="0 0 24 24"
+            width="16"
+            height="16"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+          >
+            <path d="M18 6L6 18M6 6l12 12" />
+          </svg>
+        </button>
+
+        <div class="wa-header">
+          <div class="wa-faculty-avatar-wrap">
+            <img
+              class="wa-faculty-img"
+              id="waFacultyImg"
+              src=""
+              alt="Faculty Photo"
+              onerror="
+                this.style.display = 'none';
+                document.getElementById('waAvatarFallback').style.display =
+                  'flex';
+              "
+            />
+            <div class="wa-faculty-avatar-fallback" id="waAvatarFallback">
+              <svg viewBox="0 0 48 48" fill="none" width="36" height="36">
+                <circle
+                  cx="24"
+                  cy="18"
+                  r="10"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                />
+                <path
+                  d="M8 44c0-8.8 7.2-16 16-16s16 7.2 16 16"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </div>
+          </div>
+
+          <div class="wa-faculty-info">
+            <p class="wa-label">SENDING TO</p>
+            <h3 class="wa-faculty-name" id="waFacultyName">Ms. Priya Sharma</h3>
+            <p class="wa-faculty-title" id="waFacultyTitle">
+              HOD – BCA Department
+            </p>
+            <p class="wa-phone" id="waPhone">+91 98765 43210</p>
+          </div>
+
+          <div class="wa-badge">
+            <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor">
+              <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
+              />
+            </svg>
+            WhatsApp
+          </div>
+        </div>
+
+        <div class="wa-preview">
+          <div class="wa-preview-label">MESSAGE PREVIEW</div>
+          <div class="wa-message-box" id="waMessageBox"></div>
+        </div>
+
+        <button class="wa-send-btn" id="waSendBtn">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+            <path
+              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
+            />
+          </svg>
+          <span>Send via WhatsApp</span>
+        </button>
+
+        <button class="wa-back-btn" id="waBackBtn">
+          <svg
+            viewBox="0 0 24 24"
+            width="14"
+            height="14"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+          >
+            <path d="M19 12H5M12 5l-7 7 7 7" />
+          </svg>
+          Edit Message
+        </button>
+      </div>
+    </div>
+
+    <!-- ===== TOAST ===== -->
+    <div class="toast" id="successToast">
+      <svg
+        viewBox="0 0 24 24"
+        width="18"
+        height="18"
+        fill="none"
+        stroke="#22c55e"
+        stroke-width="2.5"
+        stroke-linecap="round"
+      >
+        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+        <path d="M22 4L12 14.01l-3-3" />
+      </svg>
+      <span>WhatsApp opened! Message ready to send.</span>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+      <div class="footer-wave">
+        <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+          <path
+            d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z"
+            fill="rgba(0,212,255,0.06)"
+          />
+          <path
+            d="M0,60 C480,20 960,80 1440,60 L1440,80 L0,80 Z"
+            fill="rgba(168,85,247,0.04)"
+          />
+        </svg>
+      </div>
+      <div class="footer-content">
+        <!--
+        FOOTER LOGO: Same logo.png file is used here too.
+        If logo.png is present → photo shows. Otherwise → SVG fallback.
+      -->
+        <div class="footer-logo-wrap">
+          <img
+            src="bg_images/logo.png"
+            alt="CTMC Logo"
+            class="footer-logo-img"
+            onerror="
+              this.style.display = 'none';
+              this.nextElementSibling.style.display = 'flex';
+            "
+          />
+          <div class="footer-logo-svg-fallback" style="display: none">
+            <svg viewBox="0 0 48 48" fill="none" width="52" height="52">
+              <circle
+                cx="24"
+                cy="24"
+                r="20"
+                stroke="#00d4ff"
+                stroke-width="2"
+              />
+              <path
+                d="M24 8v32M12 18L24 8l12 10"
+                stroke="#00d4ff"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M16 28Q24 20 32 28"
+                stroke="#a855f7"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+              <circle cx="24" cy="32" r="3" fill="#00d4ff" />
+            </svg>
+          </div>
+        </div>
+
+        <p class="footer-college">CARAVEL TECHNICAL &amp; MANAGEMENT COLLEGE</p>
+        <p class="footer-tagline">Empowering Students · Enabling Excellence</p>
+        <div class="footer-divider"></div>
+        <p class="footer-dev">
+          Developed with
+          <svg
+            class="heart-svg"
+            viewBox="0 0 24 24"
+            width="14"
+            height="14"
+            fill="#ef4444"
+          >
+            <path
+              d="M12 21.593c-5.63-5.539-11-10.297-11-14.402 0-3.791 3.068-5.191 5.281-5.191 1.312 0 4.151.501 5.719 4.457 1.59-3.968 4.464-4.447 5.726-4.447 2.54 0 5.274 1.621 5.274 5.181 0 4.069-5.136 8.625-11 14.402z"
+            />
+          </svg>
+          by <span class="dev-name">Mr. Apurba Goswami</span>
+        </p>
+        <p class="footer-year">© 2025 CTMC. All Rights Reserved.</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
 </html>
