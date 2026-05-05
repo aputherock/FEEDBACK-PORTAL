@@ -136,6 +136,27 @@ const facultyData = {
       image: "./bg_images/hod.jpg",
     },
   ],
+
+  "Multimedia & Animation": [
+    {
+      name: "Prof Mr. Ritamvar Jana",
+      title: "Faculty – Multimedia & Animation",
+      phone: "917076709757",   // ← update with correct number if different
+      image: "./bg_images/ritamvar.png",
+    },
+    {
+      name: "Mr. Vikash Kumar",
+      title: "HOD",
+      phone: "919002143980",
+      image: "./bg_images/hod.jpg",
+    },
+    {
+      name: "Mr. Monojit Das -MD",
+      title: "MD (Manager Director)",
+      phone: "918100734089",
+      image: "./bg_images/MD.png",
+    },
+  ],
 };
 
 /* Legacy single-entry map kept for back-compatibility (WA modal) — auto-built from facultyData */
@@ -195,6 +216,24 @@ const DEPT_SVG_ICONS = {
       <path d="M28 26l10 10" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
       <path d="M6 42h36" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
       <path d="M16 42v-7M22 42v-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </svg>`,
+
+  "Multimedia & Animation": `
+    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="color:#f472b6">
+      <rect x="3" y="10" width="8" height="28" rx="2" stroke="currentColor" stroke-width="2" fill="rgba(244,114,182,0.10)"/>
+      <rect x="4.5" y="13" width="5" height="4" rx="1" fill="currentColor" opacity="0.5"/>
+      <rect x="4.5" y="20" width="5" height="4" rx="1" fill="currentColor" opacity="0.5"/>
+      <rect x="4.5" y="27" width="5" height="4" rx="1" fill="currentColor" opacity="0.5"/>
+      <rect x="37" y="10" width="8" height="28" rx="2" stroke="currentColor" stroke-width="2" fill="rgba(244,114,182,0.10)"/>
+      <rect x="38.5" y="13" width="5" height="4" rx="1" fill="currentColor" opacity="0.5"/>
+      <rect x="38.5" y="20" width="5" height="4" rx="1" fill="currentColor" opacity="0.5"/>
+      <rect x="38.5" y="27" width="5" height="4" rx="1" fill="currentColor" opacity="0.5"/>
+      <rect x="11" y="13" width="26" height="18" rx="2.5" stroke="currentColor" stroke-width="2" fill="rgba(244,114,182,0.07)"/>
+      <path d="M20 17.5 L20 27 L30 22.5 Z" fill="currentColor" opacity="0.75"/>
+      <path d="M13 36 Q18 33 24 36 Q30 39 35 36" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.7"/>
+      <circle cx="16" cy="42" r="1.5" fill="currentColor" opacity="0.5"/>
+      <circle cx="24" cy="43" r="1.5" fill="currentColor" opacity="0.7"/>
+      <circle cx="32" cy="42" r="1.5" fill="currentColor" opacity="0.5"/>
     </svg>`,
 };
 
