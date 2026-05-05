@@ -62,18 +62,18 @@ body::before {
   background:
     radial-gradient(
       ellipse 80% 60% at 20% 10%,
-      rgba(41, 44, 44, 0.874) 0%,
+      rgba(11, 6, 80, 0.874) 0%,
       transparent 60%
     ),
     radial-gradient(
       ellipse 60% 80% at 80% 80%,
-      rgba(169, 240, 157, 0.855) 0%,
+      rgba(13, 17, 13, 0.855) 0%,
       transparent 60%
     ),
     radial-gradient(
       ellipse 50% 50% at 50% 50%,
-      rgba(6, 6, 18, 1) 0%,
-      rgba(6, 6, 18, 0.8) 100%
+      rgba(17, 24, 26, 0.806) 0%,
+      rgb(0, 0, 0) 100%
     );
   animation: meshShift 14s ease-in-out infinite alternate;
   pointer-events: none;
@@ -380,7 +380,8 @@ body::before {
   max-width: 360px;
   border-radius: var(--radius-card);
   border: 1px solid var(--glass-border);
-  background: rgb(4, 5, 4);
+  background: linear-gradient(rgba(40, 79, 156, 0.846),
+  rgba(22, 18, 25, 0.215),rgb(8, 10, 8));
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   cursor: pointer;

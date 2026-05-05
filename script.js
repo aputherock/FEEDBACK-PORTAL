@@ -37,19 +37,19 @@ const facultyData = {
       name: "Prof. Apurba Goswami",
       title: "Faculty From BCA Department",
       phone: "919547173980",
-      image: "bg_images/apu.jpg",
+      image: "./bg_images/apu.jpg",
     },
     {
       name: "Mr. Vikash Kumar",
       title: "HOD from BCA Department",
       phone: "919002143980",
-      image: "bg_images/hod.jpg",
+      image: "./bg_images/hod.jpg",
     },
     {
       name: "Mr. Monojit Das -MD",
       title: "MD (Manager Director)",
       phone: "918100734089",           // ✅ FIX: was "918100734089" — no spaces
-      image: "bg_images/MD.png",
+      image: "./bg_images/MD.png",
     },
   ],
 
@@ -58,13 +58,13 @@ const facultyData = {
       name: "Mr. Vikash Kumar",
       title: "HOD",
       phone: "919002143980",
-      image: "bg_images/hod.jpg",
+      image: "./bg_images/hod.jpg",
     },
     {
       name: "Mr. Monojit Das -MD",
       title: "MD (Manager Director)",
       phone: "918100734089",           // ✅ FIX: was "9181007 34089" (had a space — broke WhatsApp)
-      image: "bg_images/MD.png",
+      image: "./bg_images/MD.png",
     },
     // {
     //   name: "Mr. Aman Bose",
@@ -79,25 +79,25 @@ const facultyData = {
       name: "Prof Mr. Vikash Kumar",
       title: "HOD",
       phone: "919002143980",
-      image: "bg_images/hod.jpg",
+      image: "./bg_images/hod.jpg",
     },
     {
       name: "Mr. Monojit Das -MD",
       title: "MD (Manager Director)",
       phone: "918100734089",
-      image: "bg_images/MD.png",
+      image: "./bg_images/MD.png",
     },
     {
       name: "Prof MS. Pinki Kuila",
       title: "Faculty – Hospital Mgmt",
       phone: "917063231685",
-      image: "bg_images/pinki.png",    // ✅ FIX: was "bg_images/p.png" — renamed to avoid case issues on mobile
+      image: "./bg_images/pinki.png",    // ✅ FIX: was "bg_images/p.png" — renamed to avoid case issues on mobile
     },
     {
       name: "Prof Ms. Shreyasi Maity",
       title: "Faculty – Hospital Mgmt",
       phone: "917029353339",
-      image: "bg_images/shreyasi.png", // ✅ FIX: was "bg_images/s.png" — renamed to avoid case issues on mobile
+      image: "./bg_images/shreyasi.png", // ✅ FIX: was "bg_images/s.png" — renamed to avoid case issues on mobile
     },
   ],
 
@@ -106,19 +106,19 @@ const facultyData = {
       name: "Mr. Abhik Dash",
       title: "Faculty from Hotel Management",
       phone: "917602040014",
-      image: "bg_images/a.png",
+      image: "./bg_images/a.png",
     },
     {
       name: "Mr. Monojit Das -MD",
       title: "MD (Manager Director)",
       phone: "918100734089",
-      image: "bg_images/MD.png",
+      image: "./bg_images/MD.png",
     },
     {
       name: "Mr. Vikash Kumar",
       title: "HOD",
       phone: "919002143980",
-      image: "bg_images/hod.jpg",
+      image: "./bg_images/hod.jpg",
     },
   ],
 
@@ -127,13 +127,13 @@ const facultyData = {
       name: "Mr. Monojit Das -MD",
       title: "MD (Manager Director)",
       phone: "918100734089",
-      image: "bg_images/MD.png",
+      image: "./bg_images/MD.png",
     },
     {
       name: "Mr. Vikash Kumar",
       title: "HOD",
       phone: "919002143980",
-      image: "bg_images/hod.jpg",
+      image: "./bg_images/hod.jpg",
     },
   ],
 };
