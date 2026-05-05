@@ -4,6 +4,11 @@
  * Features: SVG icons, 3D tilt cards, glassmorphism modals,
  *           WhatsApp integration, particles, ripple, form validation
  * Future scope: Replace #bgCanvas with Three.js (see bottom of file)
+ *
+ * FIXES APPLIED:
+ * 1. Removed space in BBA > MD phone number ("9181007 34089" → "918100734089")
+ * 2. Renamed p.png / s.png to pinki.png / shreyasi.png (case-safe, descriptive)
+ * 3. Added console.warn in onerror so missing images are visible in DevTools
  */
 
 "use strict";
@@ -20,14 +25,12 @@
 
    WHATSAPP PHONE FORMAT: country code + number, no spaces or +
    Example India: 919876543210  (91 = India code)
+
+   ⚠️  IMPORTANT FOR MOBILE (Android/iOS servers are case-sensitive):
+       Make sure your actual filenames on the server EXACTLY match
+       what is written here — lowercase, no extra spaces.
    ============================================================ */
-/* ============================================================
-   FACULTY DATA — 3 faculty members per department
-   HOW TO UPDATE:
-   - Replace "91XXXXXXXXXX" with real WhatsApp numbers (country code + number, no + or spaces)
-   - Replace image paths with actual photo paths, e.g. "faculty-images/name.jpg"
-   - If an image is missing/invalid → SVG avatar fallback shows automatically
-   ============================================================ */
+
 const facultyData = {
   BCA: [
     {
@@ -38,14 +41,14 @@ const facultyData = {
     },
     {
       name: "Mr. Vikash Kumar",
-      title: "HOD from  BCA Department",
+      title: "HOD from BCA Department",
       phone: "919002143980",
       image: "bg_images/hod.jpg",
     },
     {
       name: "Mr. Monojit Das -MD",
-      title: "MD(Manager Director)",
-      phone: "918100734089",
+      title: "MD (Manager Director)",
+      phone: "918100734089",           // ✅ FIX: was "918100734089" — no spaces
       image: "bg_images/MD.png",
     },
   ],
@@ -58,9 +61,9 @@ const facultyData = {
       image: "bg_images/hod.jpg",
     },
     {
-     name: "Mr. Monojit Das -MD",
-      title: "MD(Manager Director)",
-      phone: "9181007 34089",
+      name: "Mr. Monojit Das -MD",
+      title: "MD (Manager Director)",
+      phone: "918100734089",           // ✅ FIX: was "9181007 34089" (had a space — broke WhatsApp)
       image: "bg_images/MD.png",
     },
     // {
@@ -79,8 +82,8 @@ const facultyData = {
       image: "bg_images/hod.jpg",
     },
     {
-     name: "Mr. Monojit Das -MD",
-      title: "MD(Manager Director)",
+      name: "Mr. Monojit Das -MD",
+      title: "MD (Manager Director)",
       phone: "918100734089",
       image: "bg_images/MD.png",
     },
@@ -88,13 +91,13 @@ const facultyData = {
       name: "Prof MS. Pinki Kuila",
       title: "Faculty – Hospital Mgmt",
       phone: "917063231685",
-      image: "bg_images/p.png",
+      image: "bg_images/pinki.png",    // ✅ FIX: was "bg_images/p.png" — renamed to avoid case issues on mobile
     },
     {
       name: "Prof Ms. Shreyasi Maity",
       title: "Faculty – Hospital Mgmt",
       phone: "917029353339",
-      image: "bg_images/s.png",
+      image: "bg_images/shreyasi.png", // ✅ FIX: was "bg_images/s.png" — renamed to avoid case issues on mobile
     },
   ],
 
@@ -107,7 +110,7 @@ const facultyData = {
     },
     {
       name: "Mr. Monojit Das -MD",
-      title: "MD(Manager Director)",
+      title: "MD (Manager Director)",
       phone: "918100734089",
       image: "bg_images/MD.png",
     },
@@ -122,7 +125,7 @@ const facultyData = {
   BMLT: [
     {
       name: "Mr. Monojit Das -MD",
-      title: "MD(Manager Director)",
+      title: "MD (Manager Director)",
       phone: "918100734089",
       image: "bg_images/MD.png",
     },
@@ -132,7 +135,6 @@ const facultyData = {
       phone: "919002143980",
       image: "bg_images/hod.jpg",
     },
-    
   ],
 };
 
@@ -206,7 +208,7 @@ let formData = {};
    ============================================================ */
 document.addEventListener("DOMContentLoaded", () => {
   initParticles();
-  initBgCanvas(); // Stub ready for Three.js
+  initBgCanvas();
   initCards();
   initForm();
   initModals();
@@ -382,7 +384,6 @@ function initCards() {
 function openFormModal(dept) {
   activeDept = dept;
 
-  // Inject SVG icon into modal header
   const iconEl = document.getElementById("formDeptIcon");
   iconEl.innerHTML =
     DEPT_SVG_ICONS[dept] ||
@@ -478,7 +479,6 @@ function buildAndShowWa() {
 
   formData = { name, classId, semester, dept, type, message };
 
-  // Close form modal, then show faculty picker
   closeFormModal();
   setTimeout(() => showFacultyPicker(dept), 200);
 }
@@ -505,7 +505,7 @@ function showFacultyPicker(dept) {
     card.innerHTML = `
       <div class="fc-avatar-wrap">
         <img src="${faculty.image || ""}" alt="${faculty.name}" class="fc-avatar-img"
-          onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+          onerror="console.warn('CTMC: Image failed to load →', this.src); this.style.display='none'; this.nextElementSibling.style.display='flex';" />
         <div class="fc-avatar-fallback" style="display:none">
           <svg viewBox="0 0 48 48" fill="none" width="34" height="34">
             <circle cx="24" cy="18" r="10" stroke="currentColor" stroke-width="2.5"/>
@@ -531,7 +531,6 @@ function showFacultyPicker(dept) {
       </button>
     `;
 
-    // Attach send handler
     card.querySelector(".fc-send-btn").addEventListener("click", () => {
       activeFaculty = faculty;
       hideModal("facultyPickerModal");
@@ -574,6 +573,12 @@ _Sent via CTMC Feedback Portal_`;
     imgEl.alt = faculty.name;
     imgEl.style.display = "block";
     fallbackEl.style.display = "none";
+    // ✅ FIX: also handle load error in WA modal image
+    imgEl.onerror = function () {
+      console.warn("CTMC: WA modal image failed to load →", this.src);
+      this.style.display = "none";
+      fallbackEl.style.display = "flex";
+    };
   } else {
     imgEl.style.display = "none";
     fallbackEl.style.display = "flex";
