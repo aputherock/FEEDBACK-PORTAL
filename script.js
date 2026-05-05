@@ -88,13 +88,13 @@ const facultyData = {
       name: "Prof MS. Pinki Kuila",
       title: "Faculty – Hospital Mgmt",
       phone: "917063231685",
-      image: "bg_images/p.jpg",
+      image: "bg_images/p.png",
     },
     {
       name: "Prof Ms. Shreyasi Maity",
       title: "Faculty – Hospital Mgmt",
       phone: "917029353339",
-      image: "bg_images/s.jpg",
+      image: "bg_images/s.png",
     },
   ],
 
