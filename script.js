@@ -33,7 +33,7 @@ const facultyData = {
     {
       name: "Prof. Apurba Goswami",
       title: "Faculty From BCA Department",
-      phone: "9547173980",
+      phone: "919547173980",
       image: "bg_images/apu.jpg",
     },
     {
