@@ -462,12 +462,15 @@ body::before {
 }
 
 .card-title {
+ font-family: "Oleo Script", system-ui;
   font-size: 21px;
   font-weight: 800;
   letter-spacing: 0.5px;
   margin-bottom: 5px;
 }
 .card-full {
+   font-family: "Lobster Two", sans-serif;
+   letter-spacing: 0.1cap;
   font-size: 12px;
   color: var(--text-secondary);
   margin-bottom: 14px;
@@ -491,9 +494,15 @@ body::before {
   flex-shrink: 0;
 }
 .card-faculty {
+ font-family: "Geostar Fill", serif;
   font-size: 11px;
   color: var(--text-muted);
-  font-family: var(--font-mono);
+  /* font-family: var(--font-mono); */
+}
+.button1{
+  font-family: "Orbitron", sans-serif;
+  font-weight: bold;
+  color: #ffffff;
 }
 
 .card-btn {
@@ -661,6 +670,8 @@ body::before {
   height: 32px;
 }
 .modal-title {
+  font-family: "Berkshire Swash", serif;
+ letter-spacing: 0.2cap;
   font-size: 20px;
   font-weight: 700;
   margin-bottom: 3px;
@@ -1041,6 +1052,18 @@ body::before {
   height: 60px;
   display: block;
 }
+.footer-college{
+  font-family: "Cinzel", serif;
+}
+.footer-tagline{
+   font-family: "Playwrite NO", cursive;
+}
+.footer-dev{
+  font-family: "Kalnia", serif;
+}
+.dev-name{
+  font-family: "Play", sans-serif;
+}
 
 .footer-content {
   background: rgba(6, 6, 18, 0.97);
@@ -1231,4 +1254,204 @@ body::before {
 ::-webkit-scrollbar-thumb {
   background: rgba(255, 255, 255, 0.1);
   border-radius: 6px;
+}
+
+/* ============================================================
+   FACULTY PICKER MODAL
+   ============================================================ */
+.faculty-picker-box {
+  max-width: 600px;
+  width: calc(100% - 32px);
+  max-height: 88vh;
+  overflow-y: auto;
+  padding: 28px 24px 30px;
+}
+
+/* Header row */
+.fp-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 6px;
+}
+.fp-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: rgba(0, 212, 255, 0.1);
+  border: 1px solid rgba(0, 212, 255, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--neon-blue);
+  flex-shrink: 0;
+}
+.fp-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 3px;
+}
+.fp-subtitle {
+  font-size: 12px;
+  color: var(--neon-blue);
+  font-family: var(--font-mono);
+  letter-spacing: 1px;
+  opacity: 0.85;
+}
+.fp-instruction {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 22px;
+  margin-top: 4px;
+}
+
+/* Faculty grid — vertical stack (mobile-first) */
+.faculty-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Individual faculty card */
+.faculty-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 18px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  cursor: default;
+  transition: border-color var(--transition), box-shadow var(--transition), transform 0.2s ease;
+  animation: fcCardIn 0.45s cubic-bezier(0.23, 1, 0.32, 1) both;
+}
+@keyframes fcCardIn {
+  from { opacity: 0; transform: translateY(18px) scale(0.96); }
+  to   { opacity: 1; transform: translateY(0)   scale(1); }
+}
+.faculty-card:hover {
+  border-color: rgba(0, 212, 255, 0.35);
+  box-shadow: 0 0 28px rgba(0, 212, 255, 0.12), 0 4px 20px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Avatar */
+.fc-avatar-wrap {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 2px solid var(--glass-border);
+  overflow: hidden;
+  flex-shrink: 0;
+  background: rgba(255,255,255,0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.fc-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+}
+.fc-avatar-fallback {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+}
+
+/* Info block */
+.fc-info {
+  flex: 1;
+  min-width: 0;
+}
+.fc-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.fc-title {
+  font-size: 11px;
+  color: var(--neon-blue);
+  font-family: var(--font-mono);
+  opacity: 0.8;
+  margin-bottom: 6px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.fc-phone {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--neon-wa);
+}
+
+/* Send button on each card */
+.fc-send-btn {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 11px 16px;
+  border-radius: var(--radius-btn);
+  border: none;
+  background: linear-gradient(135deg, #128c7e, #25d366);
+  color: #fff;
+  font-family: var(--font-main);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  white-space: nowrap;
+  min-height: 44px;        /* touch-friendly */
+}
+.fc-send-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(37, 211, 102, 0.4);
+}
+.fc-send-btn:active {
+  transform: translateY(0);
+}
+
+/* ── Responsive ── */
+@media (max-width: 500px) {
+  .faculty-picker-box {
+    padding: 22px 14px 24px;
+  }
+  .faculty-card {
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 14px;
+  }
+  .fc-send-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 13px 20px;
+    font-size: 14px;
+  }
+  .fc-avatar-wrap {
+    width: 52px;
+    height: 52px;
+  }
+  .fp-icon {
+    width: 44px;
+    height: 44px;
+  }
+  .fp-title {
+    font-size: 17px;
+  }
 }
