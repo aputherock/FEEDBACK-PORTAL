@@ -43,7 +43,7 @@ const facultyData = {
       image: "bg_images/hod.jpg",
     },
     {
-      name: "Mr. Monijit Das -MD",
+      name: "Mr. Monojit Das -MD",
       title: "MD(Manager Director)",
       phone: "918100734089",
       image: "bg_images/MD.png",
@@ -58,7 +58,7 @@ const facultyData = {
       image: "bg_images/hod.jpg",
     },
     {
-     name: "Mr. Monijit Das -MD",
+     name: "Mr. Monojit Das -MD",
       title: "MD(Manager Director)",
       phone: "9181007 34089",
       image: "bg_images/MD.png",
@@ -79,7 +79,7 @@ const facultyData = {
       image: "bg_images/hod.jpg",
     },
     {
-     name: "Mr. Monijit Das -MD",
+     name: "Mr. Monojit Das -MD",
       title: "MD(Manager Director)",
       phone: "918100734089",
       image: "bg_images/MD.png",
@@ -106,7 +106,7 @@ const facultyData = {
       image: "bg_images/a.png",
     },
     {
-      name: "Mr. Monijit Das -MD",
+      name: "Mr. Monojit Das -MD",
       title: "MD(Manager Director)",
       phone: "918100734089",
       image: "bg_images/MD.png",
@@ -121,7 +121,7 @@ const facultyData = {
 
   BMLT: [
     {
-      name: "Mr. Monijit Das -MD",
+      name: "Mr. Monojit Das -MD",
       title: "MD(Manager Director)",
       phone: "918100734089",
       image: "bg_images/MD.png",
