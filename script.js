@@ -39,13 +39,13 @@ const facultyData = {
     {
       name: "Mr. Vikash Kumar",
       title: "HOD from  BCA Department",
-      phone: "9002143980",
+      phone: "919002143980",
       image: "bg_images/hod.jpg",
     },
     {
       name: "Mr. Monijit Das -MD",
       title: "MD(Manager Director)",
-      phone: "8100734089",
+      phone: "918100734089",
       image: "bg_images/MD.png",
     },
   ],
@@ -54,13 +54,13 @@ const facultyData = {
     {
       name: "Mr. Vikash Kumar",
       title: "HOD",
-      phone: "9002143980",
+      phone: "919002143980",
       image: "bg_images/hod.jpg",
     },
     {
      name: "Mr. Monijit Das -MD",
       title: "MD(Manager Director)",
-      phone: "81007 34089",
+      phone: "9181007 34089",
       image: "bg_images/MD.png",
     },
     // {
@@ -75,25 +75,25 @@ const facultyData = {
     {
       name: "Prof Mr. Vikash Kumar",
       title: "HOD",
-      phone: "9002143980",
+      phone: "919002143980",
       image: "bg_images/hod.jpg",
     },
     {
      name: "Mr. Monijit Das -MD",
       title: "MD(Manager Director)",
-      phone: "8100734089",
+      phone: "918100734089",
       image: "bg_images/MD.png",
     },
     {
       name: "Prof MS. Pinki Kuila",
       title: "Faculty – Hospital Mgmt",
-      phone: "7063231685",
+      phone: "917063231685",
       image: "bg_images/p.jpg",
     },
     {
       name: "Prof Ms. Shreyasi Maity",
       title: "Faculty – Hospital Mgmt",
-      phone: "7029353339",
+      phone: "917029353339",
       image: "bg_images/s.jpg",
     },
   ],
@@ -102,19 +102,19 @@ const facultyData = {
     {
       name: "Mr. Abhik Dash",
       title: "Faculty from Hotel Management",
-      phone: "7602040014",
+      phone: "917602040014",
       image: "bg_images/a.png",
     },
     {
       name: "Mr. Monijit Das -MD",
       title: "MD(Manager Director)",
-      phone: "8100734089",
+      phone: "918100734089",
       image: "bg_images/MD.png",
     },
     {
       name: "Mr. Vikash Kumar",
       title: "HOD",
-      phone: "9002143980",
+      phone: "919002143980",
       image: "bg_images/hod.jpg",
     },
   ],
@@ -123,13 +123,13 @@ const facultyData = {
     {
       name: "Mr. Monijit Das -MD",
       title: "MD(Manager Director)",
-      phone: "8100734089",
+      phone: "918100734089",
       image: "bg_images/MD.png",
     },
     {
       name: "Mr. Vikash Kumar",
       title: "HOD",
-      phone: "9002143980",
+      phone: "919002143980",
       image: "bg_images/hod.jpg",
     },
     
