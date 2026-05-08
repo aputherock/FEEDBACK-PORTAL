@@ -41,7 +41,7 @@ const facultyData = {
     },
     {
       name: "Mr. Vikash Kumar",
-      title: "HOD from BCA Department",
+      title: "HOD",
       phone: "919002143980",
       image: "./bg_images/hod.jpg",
     },
