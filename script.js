@@ -46,8 +46,8 @@ const facultyData = {
       image: "./bg_images/hod.jpg",
     },
     {
-      name: "Mr. Monojit Das -MD",
-      title: "MD (Manager Director)",
+      name: "Mr. Monojit Ghosh -MD",
+      title: "MD (Managing Director)",
       phone: "918100734089",           // ✅ FIX: was "918100734089" — no spaces
       image: "./bg_images/MD.png",
     },
@@ -61,8 +61,8 @@ const facultyData = {
       image: "./bg_images/hod.jpg",
     },
     {
-      name: "Mr. Monojit Das -MD",
-      title: "MD (Manager Director)",
+      name: "Mr. Monojit Ghosh -MD",
+      title: "MD (Managing Director)",
       phone: "918100734089",           // ✅ FIX: was "9181007 34089" (had a space — broke WhatsApp)
       image: "./bg_images/MD.png",
     },
@@ -82,8 +82,8 @@ const facultyData = {
       image: "./bg_images/hod.jpg",
     },
     {
-      name: "Mr. Monojit Das -MD",
-      title: "MD (Manager Director)",
+      name: "Mr. Monojit Ghosh -MD",
+      title: "MD (Managing Director)",
       phone: "918100734089",
       image: "./bg_images/MD.png",
     },
@@ -109,8 +109,8 @@ const facultyData = {
       image: "./bg_images/a.png",
     },
     {
-      name: "Mr. Monojit Das -MD",
-      title: "MD (Manager Director)",
+      name: "Mr. Monojit Ghosh -MD",
+      title: "MD (Managing Director)",
       phone: "918100734089",
       image: "./bg_images/MD.png",
     },
@@ -124,8 +124,8 @@ const facultyData = {
 
   BMLT: [
     {
-      name: "Mr. Monojit Das -MD",
-      title: "MD (Manager Director)",
+      name: "Mr. Monojit Ghosh-MD",
+      title: "MD (Managing Director)",
       phone: "918100734089",
       image: "./bg_images/MD.png",
     },
@@ -151,8 +151,8 @@ const facultyData = {
       image: "./bg_images/hod.jpg",
     },
     {
-      name: "Mr. Monojit Das -MD",
-      title: "MD (Manager Director)",
+      name: "Mr. Monojit Ghosh -MD",
+      title: "MD (Managing Director)",
       phone: "918100734089",
       image: "./bg_images/MD.png",
     },
