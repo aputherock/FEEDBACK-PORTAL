@@ -14,6 +14,26 @@
     <style>html { scroll-behavior: smooth; }</style>
   </head>
   <body>
+    <!-- ===== LOADING SCREEN =====  -->
+    <div id="loadingScreen">
+      <div class="loading-content">
+        <div class="loading-icon">
+          <img
+            src="bg_images/logo.png"
+            alt="CTMC Logo"
+            class="loading-logo-img"
+            onerror="this.style.display='none'"
+          />
+        </div>
+        <h1 class="loading-title">
+          <span class="lt-w">Welcome</span>
+          <span class="lt-t">to</span>
+          <span class="lt-f">Feedback</span>
+          <span class="lt-p">Portal</span>
+        </h1>
+        <div class="loading-dots"><span></span><span></span><span></span></div>
+      </div>
+    </div>
     <canvas id="bgCanvas"></canvas>
     <div id="particles"></div>
 

@@ -247,6 +247,11 @@ let formData = {};
    ============================================================ */
 document.addEventListener("DOMContentLoaded", () => {
   initParticles();
+  // Hide loading screen after 4 seconds
+  setTimeout(() => {
+    const ls = document.getElementById("loadingScreen");
+    if (ls) ls.classList.add("hide");
+  }, 4000);
   initBgCanvas();
   initCards();
   initForm();
@@ -277,11 +282,11 @@ document.addEventListener("DOMContentLoaded", () => {
     showToast();
   });
 
-  // WA back button → go back to faculty picker
+  // WA back button → go back to form modal to EDIT the message
   document.getElementById("waBackBtn").addEventListener("click", () => {
     hideModal("waModal");
     setTimeout(() => {
-      if (formData.dept) showFacultyPicker(formData.dept);
+      if (formData.dept) reopenFormModal(formData);
     }, 200);
   });
 });
@@ -438,6 +443,28 @@ function openFormModal(dept) {
 
 function closeFormModal() {
   hideModal("formModal");
+}
+
+/* Reopen the form modal pre-filled with existing formData for editing */
+function reopenFormModal(data) {
+  activeDept = data.dept;
+
+  const iconEl = document.getElementById("formDeptIcon");
+  iconEl.innerHTML =
+    DEPT_SVG_ICONS[data.dept] ||
+    `<svg viewBox="0 0 48 48" fill="none" width="32" height="32"><circle cx="24" cy="24" r="18" stroke="currentColor" stroke-width="2.5"/></svg>`;
+
+  document.getElementById("formDeptName").textContent = data.dept + " Department";
+  document.getElementById("department").value = data.dept;
+
+  document.getElementById("studentName").value = data.name || "";
+  document.getElementById("classId").value = data.classId || "";
+  document.getElementById("semester").value = data.semester || "";
+  document.getElementById("message").value = data.message || "";
+
+  resetTypeTab(data.type || "Complaint");
+  clearAllErrors();
+  showModal("formModal");
 }
 
 /* ============================================================
