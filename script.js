@@ -270,6 +270,50 @@ document.addEventListener("DOMContentLoaded", () => {
     );
   }
 
+  // Principal form modal button
+  const principalBtn = document.getElementById("principalWaBtn");
+  if (principalBtn) {
+    principalBtn.addEventListener("click", () => openPrincipalModal());
+  }
+
+  // Principal form submit
+  const pForm = document.getElementById("principalFeedbackForm");
+  if (pForm) {
+    pForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      if (validatePrincipalForm()) buildAndSendPrincipal();
+    });
+  }
+
+  // Principal type tabs
+  const pTypeTabs = document.getElementById("pTypeTabs");
+  if (pTypeTabs) {
+    pTypeTabs.addEventListener("click", (e) => {
+      const tab = e.target.closest(".type-tab");
+      if (!tab) return;
+      pTypeTabs.querySelectorAll(".type-tab").forEach(t => t.classList.remove("active"));
+      tab.classList.add("active");
+      document.getElementById("pFeedbackType").value = tab.dataset.type;
+    });
+  }
+
+  // Close principal modal
+  const closePrincipal = document.getElementById("closePrincipalModal");
+  if (closePrincipal) {
+    closePrincipal.addEventListener("click", () => hideModal("principalFormModal"));
+  }
+  const pOverlay = document.getElementById("principalFormModal");
+  if (pOverlay) {
+    pOverlay.addEventListener("click", function(e) {
+      if (e.target === this) hideModal("principalFormModal");
+    });
+  }
+
+  // Escape key close for principal modal (extend existing listener)
+  document.addEventListener("keydown", (e2) => {
+    if (e2.key === "Escape") hideModal("principalFormModal");
+  });
+
   // WA send button
   document.getElementById("waSendBtn").addEventListener("click", function () {
     const phone = this.dataset.phone;
@@ -296,7 +340,7 @@ document.addEventListener("DOMContentLoaded", () => {
    ============================================================ */
 function initParticles() {
   const container = document.getElementById("particles");
-  const colors = ["#00d4ff", "#a855f7", "#22c55e", "#f59e0b"];
+  const colors = ["#f0c040", "#4ade80", "#fbbf24", "#34d399"];
   const count = window.innerWidth < 600 ? 20 : 40;
 
   for (let i = 0; i < count; i++) {
@@ -352,7 +396,7 @@ function initBgCanvas() {
       if (d.y < 0 || d.y > h) d.vy *= -1;
       ctx.beginPath();
       ctx.arc(d.x, d.y, d.r, 0, Math.PI * 2);
-      ctx.fillStyle = "rgba(0,212,255,0.4)";
+      ctx.fillStyle = "rgba(240,192,64,0.35)";
       ctx.fill();
     });
     for (let i = 0; i < dots.length; i++) {
@@ -364,7 +408,7 @@ function initBgCanvas() {
           ctx.beginPath();
           ctx.moveTo(dots[i].x, dots[i].y);
           ctx.lineTo(dots[j].x, dots[j].y);
-          ctx.strokeStyle = `rgba(0,212,255,${0.12 * (1 - dist / 130)})`;
+          ctx.strokeStyle = `rgba(240,192,64,${0.10 * (1 - dist / 130)})`;
           ctx.lineWidth = 0.5;
           ctx.stroke();
         }
@@ -745,6 +789,77 @@ function initScrollAnimations() {
     card.style.animationPlayState = "paused";
     obs.observe(card);
   });
+}
+
+/* ============================================================
+   PRINCIPAL FORM MODAL
+   ============================================================ */
+function openPrincipalModal() {
+  // Reset form
+  const pForm = document.getElementById("principalFeedbackForm");
+  if (pForm) pForm.reset();
+  // Reset type tabs to Complaint
+  const pTypeTabs = document.getElementById("pTypeTabs");
+  if (pTypeTabs) {
+    pTypeTabs.querySelectorAll(".type-tab").forEach(t =>
+      t.classList.toggle("active", t.dataset.type === "Complaint")
+    );
+  }
+  const pTypeInput = document.getElementById("pFeedbackType");
+  if (pTypeInput) pTypeInput.value = "Complaint";
+  // Clear errors
+  document.querySelectorAll("#principalFormModal .form-group")
+    .forEach(g => g.classList.remove("has-error"));
+  showModal("principalFormModal");
+}
+
+function validatePrincipalForm() {
+  let valid = true;
+  ["pStudentName", "pClassId", "pSemester", "pMessage"].forEach((id) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const grp = el.closest(".form-group");
+    if (!el.value.trim()) {
+      grp.classList.add("has-error");
+      valid = false;
+    } else {
+      grp.classList.remove("has-error");
+    }
+  });
+  return valid;
+}
+
+function buildAndSendPrincipal() {
+  const name     = document.getElementById("pStudentName").value.trim();
+  const classId  = document.getElementById("pClassId").value.trim();
+  const semester = document.getElementById("pSemester").value;
+  const type     = document.getElementById("pFeedbackType").value;
+  const message  = document.getElementById("pMessage").value.trim();
+
+  const waText = `*CTMC — Message to Principal*
+━━━━━━━━━━━━━━━━━━
+
+*Name:* ${name}
+*Class ID:* ${classId}
+*Semester:* ${semester}
+*Type:* ${type}
+
+*Message:*
+${message}
+
+━━━━━━━━━━━━━━━━━━
+_Sent via CTMC Feedback Portal_`;
+
+  const phone = "919002143980";
+  hideModal("principalFormModal");
+  setTimeout(() => {
+    window.open(
+      `https://wa.me/${phone}?text=${encodeURIComponent(waText)}`,
+      "_blank",
+      "noopener,noreferrer"
+    );
+    showToast();
+  }, 300);
 }
 
 /* ============================================================
