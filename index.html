@@ -125,6 +125,310 @@
       </div>
     </section>
 
+    <!-- ===== TOP ACHIEVERS PORTAL SECTION ===== -->
+    <section class="achievers-portal-section" id="topAchievers">
+      <div class="tap-bg-orbs">
+        <div class="tap-orb tap-orb-1"></div>
+        <div class="tap-orb tap-orb-2"></div>
+        <div class="tap-orb tap-orb-3"></div>
+      </div>
+
+      <div class="tap-inner">
+        <!-- Left: text block -->
+        <div class="tap-text-block">
+          <div class="tap-pill">
+            <span class="tap-pill-dot"></span>
+            HALL OF FAME
+          </div>
+          <h2 class="tap-heading">
+            <span class="tap-h-line1">CTMC Top</span>
+            <span class="tap-h-line2">Achievers Portal</span>
+          </h2>
+          <p class="tap-subtext">
+            Discover the brilliant minds who brought glory to CTMC — from hackathons &amp; coding contests to sports, seminars, and academic excellence.
+          </p>
+          <div class="tap-stats-row">
+            <div class="tap-stat">
+              <span class="tap-stat-num">248+</span>
+              <span class="tap-stat-lbl">Achievers</span>
+            </div>
+            <div class="tap-stat-divider"></div>
+            <div class="tap-stat">
+              <span class="tap-stat-num">64</span>
+              <span class="tap-stat-lbl">Competitions</span>
+            </div>
+            <div class="tap-stat-divider"></div>
+            <div class="tap-stat">
+              <span class="tap-stat-num">🥇🥈🥉</span>
+              <span class="tap-stat-lbl">Top 3 Positions</span>
+            </div>
+          </div>
+          <a href="index2.html" class="tap-cta-btn">
+            <span class="tap-cta-icon">🏆</span>
+            <span>Explore Achievers</span>
+            <svg class="tap-arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <!-- Right: trophy showcase cards -->
+        <div class="tap-cards-block">
+          <!-- Floating rank cards -->
+          <div class="tap-rank-card tap-rank-gold">
+            <div class="tap-rank-medal">🥇</div>
+            <div class="tap-rank-info">
+              <span class="tap-rank-pos">1st Place</span>
+              <span class="tap-rank-name">Top Performers</span>
+            </div>
+            <div class="tap-rank-glow"></div>
+          </div>
+          <div class="tap-rank-card tap-rank-silver">
+            <div class="tap-rank-medal">🥈</div>
+            <div class="tap-rank-info">
+              <span class="tap-rank-pos">2nd Place</span>
+              <span class="tap-rank-name">Rising Stars</span>
+            </div>
+            <div class="tap-rank-glow"></div>
+          </div>
+          <div class="tap-rank-card tap-rank-bronze">
+            <div class="tap-rank-medal">🥉</div>
+            <div class="tap-rank-info">
+              <span class="tap-rank-pos">3rd Place</span>
+              <span class="tap-rank-name">Promising Talents</span>
+            </div>
+            <div class="tap-rank-glow"></div>
+          </div>
+
+          <!-- Category badges row -->
+          <div class="tap-categories">
+            <span class="tap-cat tap-cat-1">💻 Hackathon</span>
+            <span class="tap-cat tap-cat-2">📚 Exams</span>
+            <span class="tap-cat tap-cat-3">⚽ Sports</span>
+            <span class="tap-cat tap-cat-4">🎯 Quiz</span>
+            <span class="tap-cat tap-cat-5">🔬 Research</span>
+            <span class="tap-cat tap-cat-6">🎤 Seminar</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom ticker -->
+      <div class="tap-ticker-wrap">
+        <div class="tap-ticker">
+          <span>🏆 Arjun Sharma — National Hackathon 1st Place &nbsp;•&nbsp;</span>
+          <span>🥇 Riya Bose — Robotics Championship Winner &nbsp;•&nbsp;</span>
+          <span>🎓 Priya Verma — GATE AIR 142 &nbsp;•&nbsp;</span>
+          <span>💻 Siddharth Rao — ACM ICPC Regional &nbsp;•&nbsp;</span>
+          <span>⚽ Aditya Roy — State Basketball Silver &nbsp;•&nbsp;</span>
+          <span>🏆 Arjun Sharma — National Hackathon 1st Place &nbsp;•&nbsp;</span>
+          <span>🥇 Riya Bose — Robotics Championship Winner &nbsp;•&nbsp;</span>
+          <span>🎓 Priya Verma — GATE AIR 142 &nbsp;•&nbsp;</span>
+          <span>💻 Siddharth Rao — ACM ICPC Regional &nbsp;•&nbsp;</span>
+          <span>⚽ Aditya Roy — State Basketball Silver &nbsp;•&nbsp;</span>
+        </div>
+      </div>
+    </section>
+
+    <style>
+    /* ════════════════════════════════════
+       TOP ACHIEVERS PORTAL SECTION
+    ════════════════════════════════════ */
+    .achievers-portal-section {
+      position: relative;
+      margin: 2.5rem 1.2rem 2.5rem;
+      border-radius: 28px;
+      overflow: hidden;
+      background: linear-gradient(135deg,
+        rgba(6, 4, 28, 0.97) 0%,
+        rgba(10, 5, 40, 0.97) 40%,
+        rgba(4, 12, 35, 0.97) 100%
+      );
+      border: 1px solid rgba(255,255,255,0.07);
+      box-shadow:
+        0 0 0 1px rgba(0,212,255,0.12),
+        0 40px 80px rgba(0,0,0,0.6),
+        inset 0 1px 0 rgba(255,255,255,0.06);
+    }
+
+    /* Orb background blobs */
+    .tap-bg-orbs { position: absolute; inset: 0; pointer-events: none; overflow: hidden; border-radius: 28px; }
+    .tap-orb {
+      position: absolute; border-radius: 50%; filter: blur(70px); opacity: 0.18;
+      animation: tapOrbFloat ease-in-out infinite;
+    }
+    .tap-orb-1 { width: 420px; height: 420px; background: radial-gradient(circle, #7c3aed, transparent); top: -80px; left: -80px; animation-duration: 18s; }
+    .tap-orb-2 { width: 350px; height: 350px; background: radial-gradient(circle, #00d4ff, transparent); top: 30%; right: -60px; animation-duration: 22s; animation-delay: -8s; }
+    .tap-orb-3 { width: 280px; height: 280px; background: radial-gradient(circle, #f472b6, transparent); bottom: -40px; left: 35%; animation-duration: 16s; animation-delay: -4s; }
+    @keyframes tapOrbFloat {
+      0%,100% { transform: translate(0,0) scale(1); }
+      50% { transform: translate(20px,-25px) scale(1.08); }
+    }
+
+    /* ─── Inner layout ─── */
+    .tap-inner {
+      position: relative; z-index: 2;
+      display: flex; gap: 3rem; align-items: center;
+      padding: 3.5rem 3rem 2.5rem;
+      flex-wrap: wrap;
+    }
+
+    /* ─── Text Block ─── */
+    .tap-text-block { flex: 1; min-width: 280px; }
+
+    .tap-pill {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(0,212,255,0.08);
+      border: 1px solid rgba(0,212,255,0.25);
+      border-radius: 99px; padding: 0.35rem 1rem;
+      font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase;
+      color: #00d4ff; margin-bottom: 1.2rem;
+      font-family: 'Space Mono', monospace;
+    }
+    .tap-pill-dot {
+      width: 6px; height: 6px; border-radius: 50%; background: #00d4ff;
+      box-shadow: 0 0 6px #00d4ff;
+      animation: tapBlink 1.2s step-start infinite;
+    }
+    @keyframes tapBlink { 50% { opacity: 0; } }
+
+    .tap-heading {
+      display: flex; flex-direction: column; gap: 0.15rem;
+      margin-bottom: 1rem; line-height: 1.1;
+    }
+    .tap-h-line1 {
+      font-family: 'Space Mono', monospace; font-size: clamp(1.6rem, 3.5vw, 2.8rem); font-weight: 700;
+      color: rgba(255,255,255,0.92); letter-spacing: -0.01em;
+    }
+    .tap-h-line2 {
+      font-family: 'Space Mono', monospace; font-size: clamp(1.6rem, 3.5vw, 2.8rem); font-weight: 700;
+      background: linear-gradient(90deg, #00d4ff 0%, #a855f7 50%, #f472b6 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .tap-subtext {
+      font-family: 'Poppins', sans-serif; font-size: 0.95rem; font-weight: 300;
+      color: rgba(180,200,230,0.75); line-height: 1.7; margin-bottom: 1.8rem;
+      max-width: 440px;
+    }
+
+    /* Stats row */
+    .tap-stats-row {
+      display: flex; align-items: center; gap: 1.5rem;
+      margin-bottom: 2rem; flex-wrap: wrap;
+    }
+    .tap-stat { display: flex; flex-direction: column; gap: 0.1rem; }
+    .tap-stat-num {
+      font-family: 'Space Mono', monospace; font-size: 1.5rem; font-weight: 700;
+      background: linear-gradient(135deg, #00d4ff, #a855f7);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .tap-stat-lbl { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(160,180,210,0.6); }
+    .tap-stat-divider { width: 1px; height: 36px; background: rgba(255,255,255,0.1); }
+
+    /* CTA Button */
+    .tap-cta-btn {
+      display: inline-flex; align-items: center; gap: 0.75rem;
+      padding: 1rem 2.2rem; border-radius: 14px; text-decoration: none;
+      background: linear-gradient(135deg, #00d4ff 0%, #7c3aed 50%, #f472b6 100%);
+      color: #fff; font-family: 'Poppins', sans-serif; font-weight: 700;
+      font-size: 0.95rem; letter-spacing: 0.04em;
+      box-shadow: 0 8px 32px rgba(0,212,255,0.35), 0 2px 8px rgba(0,0,0,0.4);
+      transition: transform 0.2s, box-shadow 0.3s;
+      position: relative; overflow: hidden;
+    }
+    .tap-cta-btn::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.15), transparent);
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .tap-cta-btn:hover::before { opacity: 1; }
+    .tap-cta-btn:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(0,212,255,0.45); }
+    .tap-cta-icon { font-size: 1.1rem; }
+    .tap-arrow { transition: transform 0.2s; }
+    .tap-cta-btn:hover .tap-arrow { transform: translateX(4px); }
+
+    /* ─── Cards Block ─── */
+    .tap-cards-block {
+      flex: 1; min-width: 260px; max-width: 380px;
+      display: flex; flex-direction: column; gap: 0.9rem;
+    }
+
+    .tap-rank-card {
+      display: flex; align-items: center; gap: 1rem;
+      padding: 1rem 1.4rem; border-radius: 14px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(12px);
+      position: relative; overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .tap-rank-card:hover { transform: translateX(6px); }
+    .tap-rank-glow {
+      position: absolute; right: -30px; top: 50%; transform: translateY(-50%);
+      width: 80px; height: 80px; border-radius: 50%; filter: blur(30px); opacity: 0.3;
+    }
+    .tap-rank-gold { border-color: rgba(255,215,0,0.3); box-shadow: 0 0 0 1px rgba(255,215,0,0.1), inset 0 0 20px rgba(255,215,0,0.04); }
+    .tap-rank-gold .tap-rank-glow { background: #FFD700; }
+    .tap-rank-gold:hover { box-shadow: 0 0 0 1px rgba(255,215,0,0.35), 0 8px 30px rgba(255,215,0,0.18); }
+    .tap-rank-silver { border-color: rgba(192,192,192,0.3); box-shadow: 0 0 0 1px rgba(192,192,192,0.1), inset 0 0 20px rgba(192,192,192,0.04); }
+    .tap-rank-silver .tap-rank-glow { background: #C0C0C0; }
+    .tap-rank-silver:hover { box-shadow: 0 0 0 1px rgba(192,192,192,0.35), 0 8px 30px rgba(192,192,192,0.15); }
+    .tap-rank-bronze { border-color: rgba(205,127,50,0.3); box-shadow: 0 0 0 1px rgba(205,127,50,0.1), inset 0 0 20px rgba(205,127,50,0.04); }
+    .tap-rank-bronze .tap-rank-glow { background: #CD7F32; }
+    .tap-rank-bronze:hover { box-shadow: 0 0 0 1px rgba(205,127,50,0.35), 0 8px 30px rgba(205,127,50,0.15); }
+
+    .tap-rank-medal { font-size: 1.8rem; flex-shrink: 0; }
+    .tap-rank-info { display: flex; flex-direction: column; gap: 0.1rem; }
+    .tap-rank-pos { font-family: 'Space Mono', monospace; font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(200,220,255,0.5); }
+    .tap-rank-name { font-family: 'Poppins', sans-serif; font-size: 0.95rem; font-weight: 600; color: rgba(230,240,255,0.9); }
+
+    /* Category badges */
+    .tap-categories {
+      display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.4rem;
+    }
+    .tap-cat {
+      padding: 0.3rem 0.8rem; border-radius: 99px; font-size: 0.75rem;
+      font-family: 'Poppins', sans-serif; font-weight: 500;
+      border: 1px solid; transition: transform 0.2s;
+      cursor: default;
+    }
+    .tap-cat:hover { transform: translateY(-2px); }
+    .tap-cat-1 { background: rgba(0,212,255,0.1); color: #00d4ff; border-color: rgba(0,212,255,0.3); }
+    .tap-cat-2 { background: rgba(168,85,247,0.1); color: #a855f7; border-color: rgba(168,85,247,0.3); }
+    .tap-cat-3 { background: rgba(74,222,128,0.1); color: #4ade80; border-color: rgba(74,222,128,0.3); }
+    .tap-cat-4 { background: rgba(251,191,36,0.1); color: #fbbf24; border-color: rgba(251,191,36,0.3); }
+    .tap-cat-5 { background: rgba(244,114,182,0.1); color: #f472b6; border-color: rgba(244,114,182,0.3); }
+    .tap-cat-6 { background: rgba(249,115,22,0.1); color: #f97316; border-color: rgba(249,115,22,0.3); }
+
+    /* ─── Ticker ─── */
+    .tap-ticker-wrap {
+      position: relative; z-index: 2;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 0.85rem 0; overflow: hidden;
+      background: rgba(0,212,255,0.04);
+    }
+    .tap-ticker {
+      display: inline-flex; white-space: nowrap;
+      font-family: 'Space Mono', monospace; font-size: 0.78rem; letter-spacing: 0.05em;
+      color: rgba(0,212,255,0.75);
+      animation: tapTicker 30s linear infinite;
+    }
+    @keyframes tapTicker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .tap-ticker-wrap:hover .tap-ticker { animation-play-state: paused; }
+
+    /* ─── Responsive ─── */
+    @media (max-width: 768px) {
+      .achievers-portal-section { margin: 1.5rem 0.8rem; border-radius: 20px; }
+      .tap-inner { padding: 2.5rem 1.5rem 2rem; flex-direction: column; gap: 2rem; }
+      .tap-cards-block { max-width: 100%; }
+      .tap-h-line1, .tap-h-line2 { font-size: clamp(1.4rem, 5vw, 2rem); }
+    }
+    @media (max-width: 480px) {
+      .tap-inner { padding: 2rem 1.2rem 1.5rem; }
+      .tap-stats-row { gap: 1rem; }
+      .tap-cta-btn { width: 100%; justify-content: center; }
+    }
+    </style>
+
     <!-- ===== PRINCIPAL CONTACT SECTION ===== -->
     <section class="principal-section" id="principalContact">
       <div class="principal-label">— DIRECT CONTACT —</div>
